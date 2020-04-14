@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:survey_covid19/models/question.dart';
 import 'package:survey_covid19/validations/validation.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -9,11 +10,10 @@ class Result extends StatefulWidget {
 }
 
 class _ResultState extends State<Result> {
-
   String resiko;
   String pendapat;
 
-  void _addData(){
+  void _addData() {
     Firestore.instance.runTransaction((Transaction transaction) async {
       CollectionReference reference = Firestore.instance.collection('hasil');
       await reference.add({
@@ -26,7 +26,6 @@ class _ResultState extends State<Result> {
 
   @override
   Widget build(BuildContext context) {
-
     if (Question.yes <= 7) {
       resiko = "Rendah";
       pendapat = "Kamu menjalankan social distancing dengan baik";
@@ -145,6 +144,8 @@ class _ResultState extends State<Result> {
                     height: 50,
                     onPressed: () {
                       _addData();
+                      SystemChannels.platform
+                          .invokeMethod('SystemNavigator.pop');
                     },
                     child: Center(
                       child: Text(
