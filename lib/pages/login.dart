@@ -117,6 +117,16 @@ class _LoginState extends State<Login> {
                             snackbar = SnackBar(
                               content: Text("Kota harus diisi"),
                             );
+                          } else if (nama.text == " " && alamat.text.isEmpty ||
+                              alamat.text == " " && nama.text.isEmpty) {
+                            snackbar = SnackBar(
+                              content: Text("Nama dan kota harus diisi"),
+                            );
+                          } else if (nama.text == "" && alamat.text.isEmpty ||
+                              alamat.text == "" && nama.text.isEmpty) {
+                            snackbar = SnackBar(
+                              content: Text("Nama dan kota harus diisi"),
+                            );
                           } else {
                             Data.nama = nama.text;
                             Data.kota = alamat.text;
