@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:survey_covid19/validations/validation.dart';
 
 class Login extends StatefulWidget {
@@ -70,6 +71,11 @@ class _LoginState extends State<Login> {
                         borderSide: BorderSide(color: Colors.green),
                       ),
                     ),
+                    keyboardType: TextInputType.text,
+                    inputFormatters: [
+                      WhitelistingTextInputFormatter(RegExp("[a-z A-Z]"))
+                    ],
+                    maxLength: 30,
                   ),
                   SizedBox(height: 20.0),
                   TextField(
@@ -85,6 +91,11 @@ class _LoginState extends State<Login> {
                         borderSide: BorderSide(color: Colors.green),
                       ),
                     ),
+                    keyboardType: TextInputType.text,
+                    inputFormatters: [
+                      WhitelistingTextInputFormatter(RegExp("[a-z A-Z]"))
+                    ],
+                    maxLength: 30,
                   ),
                   SizedBox(height: 60),
                   Container(
@@ -116,16 +127,6 @@ class _LoginState extends State<Login> {
                               alamat.text == " ") {
                             snackbar = SnackBar(
                               content: Text("Kota harus diisi"),
-                            );
-                          } else if (nama.text == " " && alamat.text.isEmpty ||
-                              alamat.text == " " && nama.text.isEmpty) {
-                            snackbar = SnackBar(
-                              content: Text("Nama dan kota harus diisi"),
-                            );
-                          } else if (nama.text == "" && alamat.text.isEmpty ||
-                              alamat.text == "" && nama.text.isEmpty) {
-                            snackbar = SnackBar(
-                              content: Text("Nama dan kota harus diisi"),
                             );
                           } else {
                             Data.nama = nama.text;
