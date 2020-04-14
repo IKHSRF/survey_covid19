@@ -98,44 +98,14 @@ class _LoginState extends State<Login> {
                     maxLength: 30,
                   ),
                   SizedBox(height: 60),
-                  Container(
-                    height: 60.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30.0),
-                      color: Colors.green,
-                    ),
-                    child: Center(
-                      child: MaterialButton(
-                        minWidth: 500.0,
-                        height: 50,
-                        onPressed: () {
-                          var snackbar;
-                          if (nama.text.isEmpty && alamat.text.isEmpty ||
-                              nama.text == "" && alamat.text == "" ||
-                              nama.text == " " && alamat.text == " ") {
-                            snackbar = SnackBar(
-                              content: Text("Nama dan kota harus diisi"),
-                            );
-                          } else if (nama.text.isEmpty ||
-                              nama.text == "" ||
-                              nama.text == " ") {
-                            snackbar = SnackBar(
-                              content: Text("Nama harus diisi"),
-                            );
-                          } else if (alamat.text.isEmpty ||
-                              alamat.text == "" ||
-                              alamat.text == " ") {
-                            snackbar = SnackBar(
-                              content: Text("Kota harus diisi"),
-                            );
-                          } else {
-                            Data.nama = nama.text;
-                            Data.kota = alamat.text;
-                            Navigator.of(context)
-                                .pushReplacementNamed('survey');
-                          }
-                          snackbarKey.currentState.showSnackBar(snackbar);
-                        },
+                  GestureDetector(
+                    child: Container(
+                      height: 60.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30.0),
+                        color: Colors.green,
+                      ),
+                      child: Center(
                         child: Text(
                           "MULAI SURVEY",
                           style: TextStyle(
@@ -145,6 +115,34 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                     ),
+                    onTap: () {
+                      var snackbar;
+                      if (nama.text.trim().isEmpty &&
+                              alamat.text.trim().isEmpty ||
+                          nama.text == "" && alamat.text == "" ||
+                          nama.text == " " && alamat.text == " ") {
+                        snackbar = SnackBar(
+                          content: Text("Nama dan kota harus diisi"),
+                        );
+                      } else if (nama.text.trim().isEmpty ||
+                          nama.text == "" ||
+                          nama.text == " ") {
+                        snackbar = SnackBar(
+                          content: Text("Nama harus diisi"),
+                        );
+                      } else if (alamat.text.trim().isEmpty ||
+                          alamat.text == "" ||
+                          alamat.text == " ") {
+                        snackbar = SnackBar(
+                          content: Text("Kota harus diisi"),
+                        );
+                      } else {
+                        Data.nama = nama.text.trim();
+                        Data.kota = alamat.text.trim();
+                        Navigator.of(context).pushReplacementNamed('survey');
+                      }
+                      snackbarKey.currentState.showSnackBar(snackbar);
+                    },
                   )
                 ],
               ),

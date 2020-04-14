@@ -62,37 +62,33 @@ class _GetStartedState extends State<GetStarted> {
             SizedBox(
               height: 20.0,
             ),
-            Container(
-              padding: EdgeInsets.only(
-                top: 10.0,
-                left: MediaQuery.of(context).size.width / 6.0,
-                right: MediaQuery.of(context).size.width / 6.0,
-              ),
+            GestureDetector(
               child: Container(
-                height: 60.0,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30.0),
-                  color: Colors.green,
+                padding: EdgeInsets.only(
+                  top: 10.0,
+                  left: MediaQuery.of(context).size.width / 6.0,
+                  right: MediaQuery.of(context).size.width / 6.0,
                 ),
-                child: Center(
-                  child: MaterialButton(
-                    minWidth: 500.0,
-                    height: 50,
-                    onPressed: () {
-                      Navigator.of(context).pushReplacementNamed('login');
-                    },
-                    child: Center(
-                      child: Text(
-                        "CARI TAHU SEKARANG",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                child: Container(
+                  height: 60.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: Colors.green,
+                  ),
+                  child: Center(
+                    child: Text(
+                      "CARI TAHU SEKARANG",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
                       ),
                     ),
                   ),
                 ),
               ),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('login');
+              },
             )
           ],
         ),

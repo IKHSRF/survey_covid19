@@ -97,69 +97,60 @@ class _ResultState extends State<Result> {
             SizedBox(
               height: 40.0,
             ),
-            Container(
-              padding: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
+            GestureDetector(
               child: Container(
-                height: 40.0,
-                width: 200.0,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30.0),
-                  color: Colors.green,
-                ),
-                child: Center(
-                  child: MaterialButton(
-                    minWidth: 500.0,
-                    height: 50,
-                    onPressed: () {
-                      Navigator.of(context).pushReplacementNamed('login');
-                      Data.nama = '';
-                      Question.yes = 0;
-                    },
-                    child: Center(
-                      child: Text(
-                        "IKUTI SURVEY LAGI",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                padding: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
+                child: Container(
+                  height: 40.0,
+                  width: 200.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: Colors.green,
+                  ),
+                  child: Center(
+                    child: Text(
+                      "IKUTI SURVEY LAGI",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
                       ),
                     ),
                   ),
                 ),
               ),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('login');
+                Data.nama = '';
+                Question.yes = 0;
+              },
             ),
             SizedBox(height: 20.0),
-            Container(
-              padding: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
+            GestureDetector(
               child: Container(
-                height: 40.0,
-                width: 200.0,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30.0),
-                  color: Colors.grey[200],
-                ),
-                child: Center(
-                  child: MaterialButton(
-                    minWidth: 500.0,
-                    height: 50,
-                    onPressed: () {
-                      _addData();
-                      SystemChannels.platform
-                          .invokeMethod('SystemNavigator.pop');
-                    },
-                    child: Center(
-                      child: Text(
-                        "SIMPAN DATA & KELUAR",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.green,
-                        ),
+                padding: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0),
+                child: Container(
+                  height: 40.0,
+                  width: 200.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: Colors.grey[200],
+                  ),
+                  child: Center(
+                    child: Text(
+                      "SIMPAN DATA & KELUAR",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green,
                       ),
                     ),
                   ),
                 ),
               ),
-            )
+              onTap: () {
+                _addData();
+                SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+              },
+            ),
           ],
         ),
       ),
