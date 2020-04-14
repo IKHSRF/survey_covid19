@@ -99,15 +99,21 @@ class _LoginState extends State<Login> {
                         height: 50,
                         onPressed: () {
                           var snackbar;
-                          if (nama.text.isEmpty && alamat.text.isEmpty) {
+                          if (nama.text.isEmpty && alamat.text.isEmpty ||
+                              nama.text == "" && alamat.text == "" ||
+                              nama.text == " " && alamat.text == " ") {
                             snackbar = SnackBar(
                               content: Text("Nama dan kota harus diisi"),
                             );
-                          } else if (nama.text.isEmpty) {
+                          } else if (nama.text.isEmpty ||
+                              nama.text == "" ||
+                              nama.text == " ") {
                             snackbar = SnackBar(
                               content: Text("Nama harus diisi"),
                             );
-                          } else if (alamat.text.isEmpty) {
+                          } else if (alamat.text.isEmpty ||
+                              alamat.text == "" ||
+                              alamat.text == " ") {
                             snackbar = SnackBar(
                               content: Text("Kota harus diisi"),
                             );
