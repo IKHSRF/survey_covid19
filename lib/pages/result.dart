@@ -49,47 +49,45 @@ class _ResultState extends State<Result> {
               height: MediaQuery.of(context).size.height / 2.5,
             ),
             Padding(
-              padding: EdgeInsets.only(
-                  bottom: 5.0,
-                  left: MediaQuery.of(context).size.width / 10.0,
-                  right: MediaQuery.of(context).size.width / 10.0),
-              child: Container(
-                child: Text(
-                  "Resiko: $resiko",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 40.0,
+              padding: EdgeInsets.only(bottom: 5.0, left: 5.0, right: 5.0),
+              child: Center(
+                child: Container(
+                  child: Text(
+                    "Resiko: $resiko",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 40.0,
+                    ),
                   ),
                 ),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(
-                  bottom: 10.0,
-                  left: MediaQuery.of(context).size.width / 10.0,
-                  right: MediaQuery.of(context).size.width / 10.0),
-              child: Container(
-                child: Text(
-                  "${Data.nama}",
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green,
+              padding: EdgeInsets.only(bottom: 10.0, left: 5.0, right: 5.0),
+              child: Center(
+                child: Container(
+                  child: Text(
+                    "${Data.nama}",
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
                   ),
                 ),
               ),
             ),
-            Container(
-              child: Padding(
-                padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width / 10.0,
-                    right: MediaQuery.of(context).size.width / 10.0),
-                child: Text(
-                  "$pendapat",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 17.0,
-                    color: Colors.grey,
+            Padding(
+              padding: EdgeInsets.only(left: 10.0, right: 5.0),
+              child: Center(
+                child: Container(
+                  child: Text(
+                    "$pendapat",
+                    style: TextStyle(
+                      fontSize: 17.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey,
+                    ),
                   ),
                 ),
               ),

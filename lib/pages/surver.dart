@@ -93,15 +93,17 @@ class _SurveyState extends State<Survey> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(
-                        right: MediaQuery.of(context).size.width / 15.0,
-                        left: MediaQuery.of(context).size.width / 15.0,
+                        right: 2.0,
+                        left: 2.0,
                       ),
-                      child: Text(
-                        questions[questionIndex].pertanyaan,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
+                      child: Center(
+                        child: Text(
+                          questions[questionIndex].pertanyaan,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),

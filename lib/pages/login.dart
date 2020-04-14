@@ -97,7 +97,7 @@ class _LoginState extends State<Login> {
                     ],
                     maxLength: 30,
                   ),
-                  SizedBox(height: 60),
+                  SizedBox(height: 50.0),
                   GestureDetector(
                     child: Container(
                       height: 60.0,
@@ -123,6 +123,20 @@ class _LoginState extends State<Login> {
                           nama.text == " " && alamat.text == " ") {
                         snackbar = SnackBar(
                           content: Text("Nama dan kota harus diisi"),
+                        );
+                      } else if (nama.text.trim().length < 5 &&
+                          alamat.text.trim().length < 5) {
+                        snackbar = SnackBar(
+                          content:
+                              Text("Isikan nama dan kota anda dengan benar"),
+                        );
+                      } else if (alamat.text.trim().length < 5) {
+                        snackbar = SnackBar(
+                          content: Text("Isikan kota anda dengan benar"),
+                        );
+                      } else if (nama.text.trim().length < 5) {
+                        snackbar = SnackBar(
+                          content: Text("Isikan nama anda dengan benar"),
                         );
                       } else if (nama.text.trim().isEmpty ||
                           nama.text == "" ||

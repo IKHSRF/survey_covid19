@@ -45,9 +45,7 @@ class _GetStartedState extends State<GetStarted> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 120.0,
-            ),
+            SizedBox(height: MediaQuery.of(context).size.width / 3.0),
             Padding(
               padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
               child: Text(
